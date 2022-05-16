@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>KosyaShering</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp; apikey=d142bbe8-4684-4fd0-ae7c-1308aec63639" type="text/javascript">
+	</script>
+	</head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<body>
+		<div class="wrapper">
+			<header class="header">
+			<div class="header__container">
+				<a href="index.html" class="header__logo">
+					<img src="logo.png" alt="логотип">
+				</a>
+				<nav class="header__menu">
+					<ul class="menu__list">
+						<li class="menu__item"><a href="index.html" class="menu__link">Главная</a></li>
+						<li class="menu__item"><a href="cars.html" target="" class="menu__link">Автомобили</a></li>
+						<li class="menu__item"><a href="" class="menu__link">Города</a>
+						</li>	
+					</ul>
+				</nav>
+				<div class="header__button">
+					<a href="register.html" class="button button_purple">Регистрация</a>
+				</div>
+			</div>
+		</header>
+		<main class="main">
+				<section class="home">
+					<div class="home__container">
+						<div class="home__content">
+							<div class="text_block">
+								<h1 class="title">
+									К нашему сожалению <span>наша компания пока работает только в городе Новосибирск;(</span></h1>
+								<div class="text_block__text">Но не отчаивайтесь, скоро мы приедем и в другие города;) </div>
+								<div class="text_block__text">А пока зарегестрируйтесь у нас на сайте, и проявите чуточку терения.</div>
+								<a href="reg.html" class="text_block__button button">Регистрация</a>
+							</div>
+						</div>
+						<div class="home_img">
+							<img src="ggg1.png" alt="картинка">
+						</div>
+					</div>
+					<div id="ya_map">
+							</div>
+				</section>
+			</main>
+		<script type="text/javascript">
+
+	ymaps.ready(init); 
+	var myMap;
+	
+	function init() {
+	
+		myMap = new ymaps.Map("map", {
+			center: [43.238253, 76.945465], // Координаты центра карты
+			zoom: 13 // Маштаб карты
+		}); 
+	
+		myMap.controls.add(
+			new ymaps.control.ZoomControl()  // Добавление элемента управления картой
+		); 
+	
+		myPlacemark = new ymaps.Placemark([43.238253,76.945465], { // Координаты метки объекта
+			balloonContent: "<div class='ya_map'>Заезжайте в гости!</div>" // Подсказка метки
+		}, {
+			preset: "twirl#redDotIcon" // Тип метки
+		});
+		
+		myMap.geoObjects.add(myPlacemark); // Добавление метки
+		myPlacemark.balloon.open(); // Открытие подсказки метки
+		
+	};
+	
+		</script>
+	</body>
+		</main>
